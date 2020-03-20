@@ -9,57 +9,83 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    init() {
+//        UINavigationBar.appearance().backgroundColor = .yellow
+        //Use this if NavigationBarTitle is with Large Font
+//        UINavigationBar.appearance().largeTitleTextAttributes = [.font : UIFont(name: "Georgia-Bold", size: 50)!]
+
+        //Use this if NavigationBarTitle is with displayMode = .inline
+        UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor.orange ,.font : UIFont(name: "Georgia-Bold", size: 35)!]
+//        UINavigationBar.appearance().titlet
+    }
+
     var body: some View {
-        
-        ZStack{
-            VStack{
-                Text("Dash Board").font(.system(size: 50)).foregroundColor(.orange)
-                
-                HStack{
-                    Spacer()
-                    NavigationLink(destination: self) {
-                        Dashboardcell1(title: "Active", count: 10)
+        NavigationView{
+            ZStack{
+                ScrollView{
+                    VStack{
+                        Spacer()
+                        Spacer()
+                        Spacer()
+                        Spacer()
+                        HStack{
+                            Spacer()
+                            NavigationLink(destination: self) {
+                                Dashboardcell1(title: "Active", count: 10)
+                            }
+                            .frame(width: 138, height: 108)
+                            .background(Color("OrangeColor"))
+                            .cornerRadius(15)
+                            
+                            Spacer()
+                            
+                            NavigationLink(destination: self) {
+                                Dashboardcell1(title: "Pending", count: 05)
+                            }
+                            .frame(width: 138, height: 108)
+                            .background(Color("GreenColor"))
+                            .cornerRadius(15)
+                            Spacer()
+                        }.padding()
+                        
+                        
+                        HStack{
+                            Spacer()
+                            NavigationLink(destination: self) {
+                                Dashboardcell1(title: "Completed", count: 05)
+                            }
+                            .frame(width: 138, height: 108)
+                            .background(Color("GreenColor"))
+                            .cornerRadius(15)
+                            
+                            Spacer()
+                            NavigationLink(destination: self) {
+                                Dashboardcell1(title: "Total", count: 20)
+                            }
+                            .frame(width: 138, height: 108)
+                            .background(Color("OrangeColor"))
+                            .cornerRadius(15)
+                            
+                            Spacer()
+                        }.padding()
+                        //                Spacer()
+                        NavigationLink(destination: self) {
+                            Dashboardcell2()
+                        }.background(Color("Color")).padding().cornerRadius(40)
+//                        Button(action: {
+//                            Text("success")
+//                        }) {
+//                            Text("Create Election").background(Color("GreenColor")).foregroundColor(.white).font(.system(size: 30))
+//                        }.padding()
+//                            .frame(width: 318, height: 50)
+//                            .background(Color("GreenColor")).cornerRadius(30)
                     }
-                    .frame(width: 138, height: 108)
-                    .background(Color("OrangeColor"))
-                    .cornerRadius(15)
                     
-                    Spacer()
-                    
-                    NavigationLink(destination: self) {
-                        Dashboardcell1(title: "Pending", count: 05)
-                    }
-                    .frame(width: 138, height: 108)
-                    .background(Color("GreenColor"))
-                    .cornerRadius(15)
-                    Spacer()
-                }.padding()
-                
-                
-                HStack{
-                    Spacer()
-                    NavigationLink(destination: self) {
-                        Dashboardcell1(title: "Completed", count: 05)
-                    }
-                    .frame(width: 138, height: 108)
-                    .background(Color("GreenColor"))
-                    .cornerRadius(15)
-                    
-                    Spacer()
-                    NavigationLink(destination: self) {
-                        Dashboardcell1(title: "Total", count: 20)
-                    }
-                    .frame(width: 138, height: 108)
-                    .background(Color("OrangeColor"))
-                    .cornerRadius(15)
-                    
-                    Spacer()
-                }.padding()
-                Spacer()
-            }
+                }
+            }.navigationBarTitle(Text("Dash Board").foregroundColor(.red),displayMode: .inline)
             
         }
-        //        Text("Hello, World!")
     }
 }
 

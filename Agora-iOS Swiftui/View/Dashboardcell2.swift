@@ -14,34 +14,41 @@ struct Dashboardcell2: View {
         VStack{
 //            background(Color(.cyan))
             HStack{
-                Text("Election Name").bold().font(.system(size: 25))
+                Text("Election Name").bold().font(.system(size: 25)).foregroundColor(Color("GreenColor"))
                 Spacer()
-                Text("Ends in 2 days")
+                Text("Ends in 2 days").foregroundColor(Color("GreenColor"))
                 
             }.padding()
-            Spacer()
+//            Spacer()
+            VStack{
+                Text("50%").font(.system(size: 35)).foregroundColor(Color("GreenColor"))
+                Text("Polled").foregroundColor(Color("GreenColor"))
+                }.frame(width: 108, height: 100, alignment: .center)
+                .clipShape(Circle()).overlay(Circle().stroke(Color("GreenColor"), lineWidth: 5))
+//            Spacer()
+//            Spacer()
             HStack{
                 Spacer()
-                Text("200").bold().font(.system(size: 25))
+                Text("200").bold().font(.system(size: 25)).foregroundColor(Color("GreenColor"))
                 Spacer()
                 Spacer()
-                Text("100").bold().font(.system(size: 25))
+                Text("100").bold().font(.system(size: 25)).foregroundColor(Color("GreenColor"))
                 Spacer()
                 
             }
             
             HStack{
                 Spacer()
-                Text("Total Voters").bold().font(.system(size: 25))
+                Text("Total Voters").bold().font(.system(size: 25)).foregroundColor(Color("GreenColor"))
                 Spacer()
                 Spacer()
-                Text("Votes Polled").bold().font(.system(size: 25))
+                Text("Votes Polled").bold().font(.system(size: 25)).foregroundColor(Color("GreenColor"))
                 Spacer()
                 
             }
             HStack{
                 
-                Text("Candidates").bold().font(.system(size: 25))
+                Text("Candidates").bold().font(.system(size: 25)).foregroundColor(Color("GreenColor"))
                 Spacer()
             }.padding()
             
@@ -54,6 +61,6 @@ struct Dashboardcell2: View {
 
 struct Dashboardcell2_Previews: PreviewProvider {
     static var previews: some View {
-        Dashboardcell2().previewLayout(.fixed(width: 351, height: 244.9))
+        Dashboardcell2().previewLayout(.fixed(width: 351, height: 250))
     }
 }
