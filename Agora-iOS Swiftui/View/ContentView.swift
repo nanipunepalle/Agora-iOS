@@ -7,14 +7,20 @@
 //
 
 import SwiftUI
-//import Realm
-//import RealmSwift
 import CoreData
 
 struct ContentView: View {
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    let request = NSFetchRequest<NSFetchRequestResult>(entityName: "ElectionDetails")
+    
     @State var selection: Int? = nil
+    @State private var electionName: String = ""
+    @State private var startDate: String = ""
+    @State private var endDate: String = ""
+    @State private var candidates: [String] = []
+    @State private var desc: String = ""
+    
     init() {
         UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor.orange ,.font : UIFont(name: "Georgia-Bold", size: 35)!]
     }
@@ -72,7 +78,6 @@ struct ContentView: View {
                         
                         Spacer()
                     }.padding()
-                    //                                        Spacer()
                     Text("Active Elections")
                         .bold().padding(3).foregroundColor(Color("GreenColor"))
                         .font(.system(size: 30))
@@ -82,13 +87,6 @@ struct ContentView: View {
                     
                     NavigationLink(destination: CreateElectionView1(), tag: 1, selection: $selection) {
                         Button(action: {
-                            let newElection = ElectionDetails(context: self.context)
-                            newElection.name = "MainElections"
-                            newElection.edescription = "please vote"
-                            newElection.startDate = Date()
-                            newElection.endDate = Date() + 4
-                            self.saveItems()
-                            print(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask))
                             self.selection = 1
                         }) {
                             Text("Create Election")
@@ -102,11 +100,28 @@ struct ContentView: View {
                 }
             }.navigationBarTitle(Text("Dash Board")
                 .foregroundColor(.red),displayMode: .inline)
+        }.onAppear {
+            do{
+//                var elections : FetchedResults<ElectionDetails>
+                let result = try self.context.fetch(self.request)
+                for data in result as! [NSManagedObject]{
+//                    print(data.value(forKey: "name")!)
+                    self.electionName = data.value(forKey: "name") as! String
+                    self.startDate = data.value(forKey: "startDate") as! String
+                    self.endDate = data.value(forKey: "endDate") as! String
+                    self.desc = data.value(forKey: "edescription") as! String
+//                    self.candidates = [data.value(forKey: "candidates") as! String]
+                    print(self.candidates)
+                }
+            }
+            catch{
+                print("error")
+            }
         }
         
     }
 }
-//}
+
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {

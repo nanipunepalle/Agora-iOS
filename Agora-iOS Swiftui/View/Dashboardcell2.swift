@@ -7,26 +7,27 @@
 //
 
 import SwiftUI
-
+import CoreData
 struct Dashboardcell2: View {
+    
+    
+    
+//    let request = NSFetchRequest<NSFetchRequestResult>(entityName: "ElectionDetails")
+//    let request = FetchRequest
+    
     var body: some View {
-//        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
         VStack{
-//            background(Color(.cyan))
             HStack{
                 Text("Election Name").bold().font(.system(size: 25)).foregroundColor(Color("GreenColor"))
                 Spacer()
                 Text("Ends in 2 days").foregroundColor(Color("GreenColor"))
                 
             }.padding()
-//            Spacer()
             VStack{
                 Text("50%").font(.system(size: 35)).foregroundColor(Color("GreenColor"))
                 Text("Polled").foregroundColor(Color("GreenColor"))
                 }.frame(width: 108, height: 100, alignment: .center)
                 .clipShape(Circle()).overlay(Circle().stroke(Color("GreenColor"), lineWidth: 5))
-//            Spacer()
-//            Spacer()
             HStack{
                 Spacer()
                 Text("200").bold().font(.system(size: 25)).foregroundColor(Color("GreenColor"))
@@ -36,7 +37,6 @@ struct Dashboardcell2: View {
                 Spacer()
                 
             }
-            
             HStack{
                 Spacer()
                 Text("Total Voters").bold().font(.system(size: 25)).foregroundColor(Color("GreenColor"))
@@ -51,10 +51,8 @@ struct Dashboardcell2: View {
                 Text("Candidates").bold().font(.system(size: 25)).foregroundColor(Color("GreenColor"))
                 Spacer()
             }.padding()
-            
-//            Text("bye")
-//            Spacer()
         }
+
         
     }
 }
