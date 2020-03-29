@@ -14,11 +14,12 @@ struct Dashboardcell2: View {
     
 //    let request = NSFetchRequest<NSFetchRequestResult>(entityName: "ElectionDetails")
 //    let request = FetchRequest
+    let name: String
     
     var body: some View {
         VStack{
             HStack{
-                Text("Election Name").bold().font(.system(size: 25)).foregroundColor(Color("GreenColor"))
+                Text(name).bold().font(.system(size: 25)).foregroundColor(Color("GreenColor"))
                 Spacer()
                 Text("Ends in 2 days").foregroundColor(Color("GreenColor"))
                 
@@ -59,6 +60,6 @@ struct Dashboardcell2: View {
 
 struct Dashboardcell2_Previews: PreviewProvider {
     static var previews: some View {
-        Dashboardcell2().previewLayout(.fixed(width: 351, height: 250))
+        Dashboardcell2(name: "Demo").previewLayout(.fixed(width: 351, height: 250))
     }
 }

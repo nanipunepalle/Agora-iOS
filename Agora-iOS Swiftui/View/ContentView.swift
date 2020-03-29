@@ -15,23 +15,23 @@ struct ContentView: View {
     let request = NSFetchRequest<NSFetchRequestResult>(entityName: "ElectionDetails")
     
     @State var selection: Int? = nil
-    @State private var electionName: String = ""
-    @State private var startDate: String = ""
-    @State private var endDate: String = ""
-    @State private var candidates: [String] = []
-    @State private var desc: String = ""
+    @State  var electionName: String = ""
+    @State  var startDate: String = ""
+    @State  var endDate: String = ""
+    @State  var candidates: [String] = []
+    @State  var desc: String = ""
+    @State  var count: Int = 0
+    @State  var votingAlgorithm: String = ""
+    //    @ObservedObject var electionsDataa = ElectionDataModel()
+//    @ObservedObject var electionData: ElectionData
+    //    var electionData = [ElectionData]()
+    //    var electionData = ElectionData(data: <#T##[edata]#>)
     
-    init() {
-        UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor.orange ,.font : UIFont(name: "Georgia-Bold", size: 35)!]
-    }
-    func saveItems(){
-        do{
-            try context.save()
-        }
-        catch{
-            print(error)
-        }
-    }
+    let width = UIScreen.main.bounds.width
+    
+//    init() {
+//        UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: "GreenColor" ,.font : UIFont(name: "Georgia-Bold", size: 25)!]
+//    }
     var body: some View {
         NavigationView{
             ScrollView{
@@ -82,7 +82,14 @@ struct ContentView: View {
                         .bold().padding(3).foregroundColor(Color("GreenColor"))
                         .font(.system(size: 30))
                     NavigationLink(destination: self) {
-                        Dashboardcell2()
+                        ScrollView(.horizontal, showsIndicators: true, content: {
+                            HStack{
+                                Dashboardcell2(name: electionName).frame(width: width-40)
+                                Dashboardcell2(name: electionName).frame(width: width-40)
+                            }
+                        })
+                        
+                        
                     }.background(Color("Color")).padding().cornerRadius(40)
                     
                     NavigationLink(destination: CreateElectionView1(), tag: 1, selection: $selection) {
@@ -102,17 +109,40 @@ struct ContentView: View {
                 .foregroundColor(.red),displayMode: .inline)
         }.onAppear {
             do{
-//                var elections : FetchedResults<ElectionDetails>
+                //                var c = 0
                 let result = try self.context.fetch(self.request)
+//                if let rresult = result as? [NSManagedObject]{
+//                                        self.electionData = rresult
+//                    self.electionData.data.append(<#T##newElement: ElectionDataFetchModel##ElectionDataFetchModel#>)
+//                    print(self.electionData.data[0].name)
+//                    print(self.electionData.data[1].name)
+                    
+//                }
                 for data in result as! [NSManagedObject]{
-//                    print(data.value(forKey: "name")!)
                     self.electionName = data.value(forKey: "name") as! String
                     self.startDate = data.value(forKey: "startDate") as! String
                     self.endDate = data.value(forKey: "endDate") as! String
                     self.desc = data.value(forKey: "edescription") as! String
-//                    self.candidates = [data.value(forKey: "candidates") as! String]
-                    print(self.candidates)
+                    let candidateData: Data = data.value(forKey: "candidates") as! Data
+                    self.candidates = try! JSONDecoder().decode([String].self, from: candidateData)
+                    //                    self.votingAlgorithm = data.value(forKey: "")
+                    //                    let new = ElectionData(name: self.electionName, desc: self.desc, startdate: self.startDate, enddate: self.endDate, candidates: self.candidates)
+                    //                    self.electionData.append(new)
+                    //                    self.electionData.append(new)
+                    //                    self.electionData.data[c+1].candidates = self.candidates
+                    //                    self.electionData.data[c].name = self.electionName
+                    //                    self.electionData.data[c].desc = self.desc
+                    //                    self.electionData.data[c].startdate = self.startDate
+                    //                    self.electionData.data[c].enddate = self.endDate
+                    //                    self.electionData.data.append(<#T##newElement: ElectionDataModel##ElectionDataModel#>)
+                    //                    c += 1
+//                    ElectionDataFetchModel()
+//                    self.electionData.data.append(<#T##newElement: ElectionDataFetchModel##ElectionDataFetchModel#>)
+//                    self.electionData.data.append(<#T##newElement: ElectionDataFetchModel##ElectionDataFetchModel#>)
                 }
+                //                print(self.electionData.data[1].name)
+                //                print(self.electionData.data[0].name)
+                
             }
             catch{
                 print("error")

@@ -19,6 +19,7 @@
 		3DA17B00242A4D9100AB3EBC /* CreateElectionView3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA17AFF242A4D9100AB3EBC /* CreateElectionView3.swift */; };
 		3DA17B02242A4DBB00AB3EBC /* CreateElectionView4.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA17B01242A4DBB00AB3EBC /* CreateElectionView4.swift */; };
 		3DA17B04242A4DD400AB3EBC /* CreateElectionView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA17B03242A4DD400AB3EBC /* CreateElectionView2.swift */; };
+		3DB41E44242FBB2C007FA7C1 /* ElectionFetchDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB41E43242FBB2C007FA7C1 /* ElectionFetchDataModel.swift */; };
 		3DD789C02428B7FA00DE8116 /* ElectionDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DD789BF2428B7FA00DE8116 /* ElectionDataModel.swift */; };
 		3DE21FC32423BB5800E2039F /* TabbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE21FC22423BB5800E2039F /* TabbarView.swift */; };
 		3DE21FC52423E54D00E2039F /* CreateElectionView1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE21FC42423E54D00E2039F /* CreateElectionView1.swift */; };
@@ -39,6 +40,7 @@
 		3DA17AFF242A4D9100AB3EBC /* CreateElectionView3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CreateElectionView3.swift; path = "../../../Agora-iOS Swiftui/Agora-iOS Swiftui/View/CreateElectionView3.swift"; sourceTree = "<group>"; };
 		3DA17B01242A4DBB00AB3EBC /* CreateElectionView4.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CreateElectionView4.swift; path = "../../../Agora-iOS Swiftui/Agora-iOS Swiftui/View/CreateElectionView4.swift"; sourceTree = "<group>"; };
 		3DA17B03242A4DD400AB3EBC /* CreateElectionView2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateElectionView2.swift; sourceTree = "<group>"; };
+		3DB41E43242FBB2C007FA7C1 /* ElectionFetchDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElectionFetchDataModel.swift; sourceTree = "<group>"; };
 		3DD789BF2428B7FA00DE8116 /* ElectionDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ElectionDataModel.swift; sourceTree = "<group>"; };
 		3DE21FC22423BB5800E2039F /* TabbarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarView.swift; sourceTree = "<group>"; };
 		3DE21FC42423E54D00E2039F /* CreateElectionView1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateElectionView1.swift; sourceTree = "<group>"; };
@@ -114,6 +116,7 @@
 			children = (
 				3DD789BF2428B7FA00DE8116 /* ElectionDataModel.swift */,
 				3D140F5224228C400070794A /* Agora_iOS_Swiftui.xcdatamodeld */,
+				3DB41E43242FBB2C007FA7C1 /* ElectionFetchDataModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -194,6 +197,7 @@
 				3DA17B02242A4DBB00AB3EBC /* CreateElectionView4.swift in Sources */,
 				3DD789C02428B7FA00DE8116 /* ElectionDataModel.swift in Sources */,
 				3DA17B04242A4DD400AB3EBC /* CreateElectionView2.swift in Sources */,
+				3DB41E44242FBB2C007FA7C1 /* ElectionFetchDataModel.swift in Sources */,
 				3D140F4F24228C400070794A /* AppDelegate.swift in Sources */,
 				3D140F5624228C400070794A /* ContentView.swift in Sources */,
 				3D140F5124228C400070794A /* SceneDelegate.swift in Sources */,

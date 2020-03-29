@@ -8,7 +8,7 @@
 
 import Foundation
 
-class ElectionDataModel:ObservableObject{
+class ElectionDataModel: ObservableObject{
     @Published var name:String = ""
     @Published var desc:String = ""
     @Published var startdate: String = ""
@@ -16,3 +16,7 @@ class ElectionDataModel:ObservableObject{
     @Published var candidates: [String] = []
     @Published var votingAlgorithm:String = ""
 }
+
+//class ElectionData: ObservableObject{
+//    @Published var data: [ElectionDataModel] = []
+//}
